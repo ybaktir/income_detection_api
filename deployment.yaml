@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: income-detection-service
+spec:
+  selector:
+    app: income-detection-app
+  ports:
+  - protocol: "TCP"
+    port: 6000
+    targetPort: 8000
+  type: LoadBalancer
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: income-detection-app
+spec:
+  selector:
+    matchLabels:
+      app: income-detection-app
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: income-detection-app
+    spec:
+      containers:
+      - name: income-detection-app
+        image: ybaktir/income_detection:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
