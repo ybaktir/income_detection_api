@@ -133,6 +133,12 @@ kubectl run curl-image --image=radial/busyboxplus:curl -i --tty --rm curl 10.100
 kubectl port-forward service/income-detection-service 6600:6000
 ```
 
+to get around the port already is use problem, you can kill process that uses the port of interest
+
+```
+kill -9 $(lsof -ti:6000)
+```
+
 ### 3\. Testing
 
 for load testing:

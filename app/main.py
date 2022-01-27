@@ -1,12 +1,12 @@
+from person import Person
+import sys
 from fastapi import FastAPI
 from catboost import CatBoostClassifier
 import uvicorn
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(dir_path)
-import sys 
 sys.path.append(dir_path)
-from person import Person
 
 
 app = FastAPI()
@@ -52,4 +52,4 @@ def get_person(data: Person):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000, debug=True)
+    uvicorn.run(app, host='127.0.0.1', port=80, debug=True)
