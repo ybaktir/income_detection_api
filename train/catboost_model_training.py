@@ -53,5 +53,6 @@ model.fit(X_train,
 model.model_cols = model_cols
 model.data_cols = names
 
+
 model.save_model("../app/catboost_income_classifier.cbm")
 #

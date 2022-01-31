@@ -1,8 +1,8 @@
 import requests
 import json
 
-url = "http://127.0.0.1:8080/predict"
-url = "http://127.0.0.1:6660/predict"
+url = "http://0.0.0.0/predict"
+#url = "http://127.0.0.1:6660/predict"
 
 
 payload = json.dumps(
@@ -31,4 +31,5 @@ response = requests.request("POST",
                             headers=headers,
                             data=payload)
 
-response.text
+resp = response.text
+print(resp)

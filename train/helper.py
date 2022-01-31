@@ -1,6 +1,6 @@
 from sklearn.impute import SimpleImputer
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelBinarizer
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
@@ -48,7 +48,7 @@ class Imputer(BaseEstimator, TransformerMixin):
         return output
 
 
-class Encoder(BaseEstimator, TransformerMixin):
+class Binarizer(BaseEstimator, TransformerMixin):
 
     def __init__(self, columns=None):
         self.columns = columns
@@ -57,7 +57,7 @@ class Encoder(BaseEstimator, TransformerMixin):
     def fit(self, data, target=None):
 
         self.encoders = {
-            column: LabelEncoder().fit(data[column])
+            column: LabelBinarizer().fit(data[column])
             for column in self.columns
         }
         return self

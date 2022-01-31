@@ -1,5 +1,6 @@
 catboost_info
 .DS_Store
+*.file
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

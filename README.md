@@ -150,6 +150,32 @@ locust -f perf.py
 
 Also, for simple python requests you can use `api_test.py`
 
+# Deployment to AWS
+
+```
+sudo yum update
+sudo yum install git -y
+```
+
+You will need to clone the repo here. As for password, either I will need to provide it to you or you will need to generate it if you have access to the repo.
+
+```
+git clone https://github.com/ybaktir/income_detection_api.git
+$ Cloning into 'income_detection_api'...
+$ Username for 'https://github.com': ybaktir
+$ Password for 'https://ybaktir@github.com':
+```
+
+After the installation find the income_detection_api folder
+
+```
+cd income_detection_api
+sudo pip3 install -r requirements.txt
+sudo python3 app/main.py
+```
+
+After this visit the instance's public api
+
 # Visuals
 
 When the app is up and running, one should see the following visuals.
